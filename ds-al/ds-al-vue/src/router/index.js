@@ -8,6 +8,18 @@ const router = createRouter({
       name: 'home',
       component: () => import('../views/home.vue')
     },
+    // 登录
+    {
+      path: '/login',
+      name: 'login',
+      component: () => import('../views/login.vue')
+    },
+    // 注册
+    {
+      path: '/register',
+      name: 'register',
+      component: () => import('../views/register.vue')
+    },
     // 线性表
     {
       path: '/linearList',

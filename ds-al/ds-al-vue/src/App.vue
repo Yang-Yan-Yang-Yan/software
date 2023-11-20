@@ -59,21 +59,37 @@
                             <img src="./assets/img/D&A.png" style="width: 110px; height: 55px;"/>
                         </a>
                     </div>
-                    <!-- <div style="float: right;">
+                    <div style="float: right;">
                         <MenuItem>
-                            <Button type="primary">
-                                <a href="/.html">
+                            <Button type="primary" v-if="isAuth">
+                                <a href="/login">
+                                    <span style="font-size: 16px; font-weight: bold; color: #ffff;">登录</span>
+                                </a>
+                            </Button>
+                            &nbsp;&nbsp;
+                            <Button type="info" v-if="isAuth">
+                                <a href="/register">
+                                    <span style="font-size: 16px; font-weight: bold; color: #ffff;">注册</span>
+                                </a>
+                            </Button>
+                            <Button type="primary" v-else="isAuth">
+                                <a href="/">
+                                    <span style="font-size: 16px; font-weight: bold; color: #ffff;">{{sname}}</span>
+                                </a>
+                            </Button>
+                            <!-- <Button type="primary">
+                                <a href="/login">
                                     <span style="font-size: 16px; font-weight: bold; color: #ffff;">登录</span>
                                 </a>
                             </Button>
                             &nbsp;&nbsp;
                             <Button type="info">
-                                <a href="/welcome.html">
+                                <a href="/register">
                                     <span style="font-size: 16px; font-weight: bold; color: #ffff;">注册</span>
                                 </a>
-                            </Button>
+                            </Button> -->
                         </MenuItem>
-                    </div> -->
+                    </div>
                     <div id="title">
                         <span style="font-size: 30px; font-weight: bold; color: #f75200;">数据结构</span>
                         <span style="font-size: 30px; font-weight: bold; color: #76b8fa;">与</span>
@@ -170,6 +186,10 @@ import { Submenu } from 'view-ui-plus';
 export default {
     data() {
         return {
+            sname:localStorage.getItem('name'),
+            smail:localStorage.getItem('mail'),
+            stel:localStorage.getItem('tel'),
+            isAuth:"",//是否保持登录状态
             isCollapsed: false
         };
     },
@@ -180,6 +200,12 @@ export default {
                 this.$Spin.hide();
             }, 1500);
         },
+        logout:function()
+        {
+            this.isAuth="false";//修改登录状态
+            localStorage.setItem('s',this.isAuth);
+            this.$router.replace('/login');//页面跳转至登录页面
+        }
     },
     computed: {
         menuitemClasses: function () {
