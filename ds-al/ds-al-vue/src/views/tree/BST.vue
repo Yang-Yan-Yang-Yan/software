@@ -10,6 +10,7 @@
     </Col>
     <Col span="7">
     <introduce>二叉搜索树</introduce>
+    <save></save>
     <control @control_speed="speed_func" @control_scale="scale_func" @control_scale_reset="scale_reset"></control>
     <bst_menu @node_insert_emit="node_insert" @node_search_emit="node_search" @node_delete_emit="node_delete"
       @dfs_qian_emit="dfs_qian" @dfs_zhong_emit="dfs_zhong" @dfs_hou_emit="dfs_hou" @bfs_emit="bfs"></bst_menu>
@@ -35,6 +36,7 @@ import chatgpt_main from "@/components/chatgpt/chatgpt_main.vue";
 import note_main from "@/components/markdown_note/note_main.vue";
 import bst_menu from "@/components/tree/bst_menu.vue";
 import introduce from "@/components/introduce.vue";
+import save from "@/components/save.vue";
 
 // js引入函数
 import { ref, onMounted } from "vue";

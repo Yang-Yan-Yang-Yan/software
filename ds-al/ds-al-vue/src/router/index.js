@@ -20,6 +20,13 @@ const router = createRouter({
       name: 'register',
       component: () => import('../views/register.vue')
     },
+    // 用户个人主页
+    {
+      path: '/user_home',
+      name: 'user_home',
+      component: () => import('../views/user_home.vue')
+    },
+
     // 线性表
     {
       path: '/linearList',

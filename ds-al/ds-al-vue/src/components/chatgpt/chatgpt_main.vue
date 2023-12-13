@@ -1,8 +1,8 @@
 <template>
     <Content :style="{minHeight: '450px', background: '#fff'}" ref="chatListDom">
       <Card v-for="item of messageList.filter((v) => v.role !== 'system')">
-          <Avatar v-if="item.role=='user'" shape="square" src="../../assets/img/D&A-icon.png"/>
-          <Avatar v-else shape="square" icon="ios-ionitron-outline" style="background: #000;"/>
+          <!-- <Avatar v-if="item.role=='user'" shape="square" src="../../assets/img/D&A-icon.png" class="image"/>
+          <Avatar v-else shape="square" src="../../assets/img/ai.png" class="image"/> -->
           &nbsp;
           <strong> {{ roleAlias[item.role] }} </strong>
           <!-- 换行 -->
@@ -40,14 +40,12 @@ let isTalking = ref(false);
 let messageContent = ref("");
 const chatListDom = ref<HTMLDivElement>();
 const decoder = new TextDecoder("utf-8");
-const roleAlias = { user: "DS&AL", assistant: "AI助理", system: "System" };
+const roleAlias = { user: "用户_1", assistant: "ChatGPT", system: "System" };
 const isConfig = ref(true); // true 是设置api-key false 是发送消息
 const messageList = ref<ChatMessage[]>([
   {
     role: "assistant",
-    content: `召唤我的小可爱，你好!
-    我是数据结构与算法可视化平台(DS&AL)的AI助理~
-    您可以通过下方的输入框向我提问，我会尽力为您解答。`,
+    content: ``,
   },
 ]);
 

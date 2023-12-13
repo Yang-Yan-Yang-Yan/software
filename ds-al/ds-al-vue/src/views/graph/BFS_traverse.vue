@@ -10,7 +10,7 @@
       <Col span="7">
       <introduce>图的广度优先遍历</introduce>
       <control @control_speed="speed_func" @control_scale="scale_func" @control_scale_reset="scale_reset"></control>
-      <bfs_menu 
+        <bfs_menu 
             @change_graph_style_emit="change_graph_style"
             @creat_graph_emit="creat_graph"
             @insert_edge_emit="insert_edge"

@@ -9,6 +9,7 @@
         </Col>
         <Col span="7">
         <introduce>字 符 串 匹 配 算 法</introduce>
+        <save></save>
         <control @control_speed="speed_func" @control_scale="scale_func" @control_scale_reset="scale_reset"></control>
         <string_match_menu 
             @creat_mubiao_string_emit="creat_mubiao_string"
@@ -35,6 +36,8 @@ import chatgpt from "@/components/chatgpt.vue";
 import chatgpt_main from "@/components/chatgpt/chatgpt_main.vue";
 import note_main from "@/components/markdown_note/note_main.vue";
 import introduce from "@/components/introduce.vue";
+import save from "@/components/save.vue";
+
 import { ref, onMounted } from "vue";
 import {
     speed_func_control,

@@ -1,5 +1,5 @@
 <template>
-  <Card>
+    <Card>
         <template #title>
             <strong><Icon type="md-ionitron" />AI助手</strong>
         </template>

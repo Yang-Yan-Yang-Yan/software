@@ -51,6 +51,7 @@ export default {
         localStorage.setItem('mail',this.mail);
         localStorage.setItem('tel',this.tel);
         localStorage.setItem('s',"false");
+        localStorage.setItem('now_stay',"false");
         alert("注册成功");
         this.$router.replace('/Login');//完成注册后跳转至登录页面
       }

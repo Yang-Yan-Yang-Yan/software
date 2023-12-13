@@ -9,6 +9,7 @@
         </Col>
         <Col span="7">
         <introduce>比 较 排 序 ==> {{ sort_style_tag }}</introduce>
+        <save></save>
         <control @control_speed="speed_func" @control_scale="scale_func" @control_scale_reset="scale_reset"></control>
         <compare_sort_menu @show_style_emit="show_style" @creat_random_array_emit="creat_random_array"
         @creat_custom_array_emit="creat_custom_array" @start_sort_emit="start_sort">
@@ -33,6 +34,7 @@ import chatgpt from "@/components/chatgpt.vue";
 import chatgpt_main from "@/components/chatgpt/chatgpt_main.vue";
 import note_main from "@/components/markdown_note/note_main.vue";
 import introduce from "@/components/introduce.vue";
+import save from "@/components/save.vue";
 import { ref, onMounted } from "vue";
 import {
     speed_func_control,

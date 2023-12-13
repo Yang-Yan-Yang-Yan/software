@@ -54,29 +54,31 @@
         <Layout>
             <Header>
                 <Menu mode="horizontal" theme="dark">
-                    <div class="layout-logo">
+                    <!-- <div class="layout-logo">
                         <a href="/welcome.html">
                             <img src="./assets/img/D&A.png" style="width: 110px; height: 55px;"/>
                         </a>
-                    </div>
+                    </div> -->
                     <div style="float: right;">
                         <MenuItem>
-                            <Button type="primary" v-if="isAuth">
+                            <Button type="primary" v-show="now_stay">
+                                <a href="/user_home">
+                                    <span style="font-size: 16px; font-weight: bold; color: #ffff;">用户_1</span>
+                                </a>
+                            </Button>
+                            <!-- <Button type="primary" v-else="now_stay">
                                 <a href="/login">
-                                    <span style="font-size: 16px; font-weight: bold; color: #ffff;">登录</span>
+                                    <span style="font-size: 16px; font-weight: bold; color: #ffff;">登录{{now_stay}}</span>
                                 </a>
                             </Button>
                             &nbsp;&nbsp;
-                            <Button type="info" v-if="isAuth">
+                            <Button type="info" v-else="now_stay">
                                 <a href="/register">
-                                    <span style="font-size: 16px; font-weight: bold; color: #ffff;">注册</span>
+                                    <span style="font-size: 16px; font-weight: bold; color: #ffff;">注册{{now_stay}}</span>
                                 </a>
-                            </Button>
-                            <Button type="primary" v-else="isAuth">
-                                <a href="/">
-                                    <span style="font-size: 16px; font-weight: bold; color: #ffff;">{{sname}}</span>
-                                </a>
-                            </Button>
+                            </Button> -->
+
+                            
                             <!-- <Button type="primary">
                                 <a href="/login">
                                     <span style="font-size: 16px; font-weight: bold; color: #ffff;">登录</span>
@@ -91,10 +93,11 @@
                         </MenuItem>
                     </div>
                     <div id="title">
-                        <span style="font-size: 30px; font-weight: bold; color: #f75200;">数据结构</span>
+                        <span style="font-size: 30px; font-weight: bold; color: #45a0fc;">在线算法学习平台</span>
+                        <!-- <span style="font-size: 30px; font-weight: bold; color: #f75200;">数据结构</span>
                         <span style="font-size: 30px; font-weight: bold; color: #76b8fa;">与</span>
                         <span style="font-size: 30px; font-weight: bold; color: #45a0fc ;">算法</span>
-                        <span style="font-size: 30px; font-weight: bold; color: #76b8fa;">可视化平台</span>
+                        <span style="font-size: 30px; font-weight: bold; color: #76b8fa;">可视化平台</span> -->
                     </div>
                 </Menu>
             </Header>
@@ -185,13 +188,17 @@
 import { Submenu } from 'view-ui-plus';
 export default {
     data() {
+        console.log("主页登录状态: " + localStorage.getItem('now_stay'))
         return {
             sname:localStorage.getItem('name'),
             smail:localStorage.getItem('mail'),
             stel:localStorage.getItem('tel'),
-            isAuth:"",//是否保持登录状态
+            stay:localStorage.getItem('s'),
+            isAuth:localStorage.getItem('isAuth'),//是否保持登录状态
+            now_stay:localStorage.getItem('now_stay'),
             isCollapsed: false
-        };
+        }
+        ;
     },
     methods:{
         show_spin(){
@@ -199,12 +206,6 @@ export default {
             setTimeout(() => {
                 this.$Spin.hide();
             }, 1500);
-        },
-        logout:function()
-        {
-            this.isAuth="false";//修改登录状态
-            localStorage.setItem('s',this.isAuth);
-            this.$router.replace('/login');//页面跳转至登录页面
         }
     },
     computed: {

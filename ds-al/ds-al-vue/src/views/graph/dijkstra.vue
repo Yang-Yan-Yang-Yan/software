@@ -9,6 +9,7 @@
       </Col>
       <Col span="7">
       <introduce>最 短 路 径 算 法: Dijkstra 算法</introduce>
+      <save></save>
       <control @control_speed="speed_func" @control_scale="scale_func" @control_scale_reset="scale_reset"></control>
       <dijkstra_menu 
             @change_graph_style_emit="change_graph_style"
@@ -39,6 +40,8 @@
   import note_main from "@/components/markdown_note/note_main.vue";
   import dijkstra_menu from "@/components/graph/dijkstra_menu.vue";
   import introduce from "@/components/introduce.vue";
+  import save from "@/components/save.vue";
+
   
   // js引入函数
   import { ref, onMounted } from "vue";

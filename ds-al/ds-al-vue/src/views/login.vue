@@ -14,21 +14,21 @@
                     <br/>
                   </div>
                   <div class="keep">
-                    <input @click="handlesave" id="yes" type="radio" value="0" ><!-- 点击选中 -->
+                    <input @click="handlesave" id="yes" type="radio" value="0"><!-- 点击选中 -->
                     <label for="yes">保持登录状态</label>
                   </div>
               </div>
               
             </form>
-                  <button  type="submit" @click.prevent="handlelogin">登录			</button>
+                  <button type="submit" @click.prevent="handlelogin">登录</button>
                   <!-- v-on点击按钮触发handlelogin方法 -->
-                  <button  @click.prevent="handleregister">注册</button>
+                  <button @click.prevent="handleregister">注册</button>
               <router-view></router-view>
         </div>
     </div>
     </template>
 
-    <script>
+<script>
 export default {
   data(){
     return{
@@ -41,8 +41,10 @@ export default {
     handlelogin:function()
     {
       if(this.name===localStorage['name'] && this.password===localStorage['password'])
-       {
-         this.$router.replace('/');//如果输入的名字以及密码正确路由跳转至个人页面
+       {  
+          localStorage.setItem('now_stay', true);
+          this.$router.replace('/');//如果输入的名字以及密码正确路由跳转至主页
+          console.log(localStorage.s)
        } 
        else if(this.name==='')//名字为空
        {
